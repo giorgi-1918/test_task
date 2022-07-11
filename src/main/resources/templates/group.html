@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Group Management System</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<div>
+    <h2>Group Management System</h2>
+
+    <p></p>
+    <p></p>
+
+    <div style="border: thin solid Red">
+        <tr>
+            <div align="left" >
+                <h8 >
+                    <a th:href="@{/Group/viewAddGroup}">Create Group Account</a>
+                </h8>
+            </div>
+        </tr>
+    </div>
+
+
+    <p></p>
+    <p></p>
+    <div style="border: thin solid Black">
+        <h4>Find Group</h4>
+        <form action="#" th:action="@{/Group/viewFindGroup}"  th:object="${numberWrapper}"   method="GET">
+            <input type="text" th:field="*{number}"  placeholder="Group Number" class="form-control mb-4 col-4">
+            <button type="submit" class="btn btn-info col-2">Find</button>
+        </form>
+
+    </div>
+
+    <p></p>
+    <p></p>
+    <div style="border: thin solid Red">
+        <tr>
+            <div align="left" >
+                <h8 >
+                    <a th:href="@{/Group/getAll}">Get All Groups</a>
+                </h8>
+            </div>
+        </tr>
+    </div>
+
+    <p></p>
+    <p></p>
+
+    <div style="border: thin solid Black">
+        <h4 align="left">Student/Teacher registration in Group</h4>
+        <form  th:object="${RLForm}" method="post">
+            <input type="text" th:field="*{private_id}" placeholder="Private ID" class="form-control mb-4 col-4">
+            <input type="number" th:field="*{group_num}" placeholder="Group Number" class="form-control mb-4 col-4">
+            <button type="submit" formaction="/Group/Register_Student" class="btn btn-info col-2">Register Student</button>
+            <button type="submit" formaction="/Group/Register_Teacher" class="btn btn-info col-2">Register Teacher</button>
+        </form>
+
+    </div>
+
+    <p></p>
+    <p></p>
+
+    <div style="border: thin solid Red">
+        <h4 align="left">Group Left</h4>
+        <form  th:object="${RLForm}" method="post">
+            <input type="text" th:field="*{private_id}" placeholder="Private ID" class="form-control mb-4 col-4">
+            <input type="number" th:field="*{group_num}" placeholder="Group Number" class="form-control mb-4 col-4">
+            <button type="submit" formaction="/Group/Student_Left" class="btn btn-info col-2">Group Left (student)</button>
+            <button type="submit" formaction="/Group/Teacher_Left" class="btn btn-info col-2">Group Left (teacher)</button>
+        </form>
+
+    </div>
+
+    <p></p>
+    <p></p>
+
+    <div style="border: thin solid Black">
+        <tr>
+            <div align="left" >
+                <h8 >
+                    <a th:href="@{/Group/getAllStudent_Group}">Get All Student-Group</a>
+                </h8>
+            </div>
+        </tr>
+    </div>
+
+    <p></p>
+    <p></p>
+
+    <div style="border: thin solid Red">
+        <tr>
+            <div align="left" >
+                <h8 >
+                    <a th:href="@{/Group/getAllTeacher_Group}">Get All Teacher-Group</a>
+                </h8>
+            </div>
+        </tr>
+    </div>
+
+
+    <p></p>
+    <p></p>
+
+    <a align="center" th:href="@{/index}"> Homepage </a>
+
+</div>
+
+
+
+</body>
+</html>
